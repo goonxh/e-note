@@ -9,6 +9,7 @@
     </div>
       <el-row :gutter="10">
         <el-col :span="12">
+          <p v-if="this.noteList.length === 0" class="no-note">暂无记录</p>
           <ul class="titleList">
             <li v-for="(item,index) in noteList" :key="item._id" @click="noteClick(item._id,index)" :class="{'activeItem':ind===index}">
               <i class="el-icon-circle-close-outline" @click.stop="deleteNote(item._id)"></i>
@@ -127,6 +128,12 @@
           padding: 12px 13px; 
         }
       }
+    }
+    .no-note{
+      text-align: center;
+      font-size: 12px;
+      margin-top: 15px;
+      color: #555;
     }
     .titleList{
       list-style: none;
